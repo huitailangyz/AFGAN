@@ -1,0 +1,45 @@
+CONFIG_NAME: 'AFGAN'
+
+DATASET_NAME: 'CelebA_big_18'
+DATA_DIR: '../data/CelebA_big_18'
+GPU_ID: 0
+WORKERS: 4
+
+
+TREE:
+    BRANCH_NUM: 3
+# Train: B_VALIDATION = False | TRAIN.FLAG = True  | NET_G = '' (train from scratch) / 'pretrain model path' (resume to train)
+# Validation: B_VALIDATION = True | TRAIN.FLAG = False | NET_G = 'pretrain model path'
+# Test: B_VALIDATION = False | TRAIN.FLAG = False | NET_G = 'pretrain model path'
+B_VALIDATION: False
+
+TRAIN:
+    FLAG: Frue
+    NET_G: ''  
+    B_NET_D: True
+    BATCH_SIZE: 24  
+    MAX_EPOCH: 600
+    SNAPSHOT_INTERVAL: 1
+    DISCRIMINATOR_LR: 0.0002
+    GENERATOR_LR: 0.0002
+
+    NET_E: ''
+    SMOOTH:
+        GAMMA1: 4.0  
+        GAMMA2: 5.0
+        GAMMA3: 10.0  
+        LAMBDA: 5.0
+        LAMBDA2: 200.0  # id_attr
+        LAMBDA3: 0.0  # id_feature
+    SECOND_LIMIT: True
+GAN:
+    DF_DIM: 64
+    GF_DIM: 32
+    Z_DIM: 100
+    CONDITION_DIM: 100
+    R_NUM: 2
+    G_STEP: 1
+
+TEXT:
+    EMBEDDING_DIM: 256
+    WORDS_NUM: 18
