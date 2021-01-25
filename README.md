@@ -22,3 +22,6 @@ Recent studies have shown remarkable success in face image generations. However,
         TRAIN.FLAG: False
 
     python main.py --cfg=cfg/CelebA_AFGAN.yml --gpu=0 --data_dir=XXX
+
+## Model
+We have uploaded the model of attribute classifier (`AlexNet_epoch_99.pth`) to [google drive](https://drive.google.com/file/d/15SdegxTqT_rKJnzs2K4Op-mvYwl9cmOQ/view?usp=sharing).
